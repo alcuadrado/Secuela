@@ -1,0 +1,17 @@
+Secuela – Simple MySQL Documenter
+
+Author: Patricio Palladino - email (at) patriciopalladino (dot) com
+Website: http://www.patriciopalladino.com/secuela
+Requirements:
+    * ruby
+    * mysql-ruby
+    * graphviz
+
+Secuela is a really simple Ruby(1.8 and 1.9 compatible) script I’ve done some months ago.
+This is my first ruby script, and done in a couple of hours, so it may have many defects.
+
+It’s intention is to document existing MySQL (and maybe later other ) databases generating a UML diagram.
+
+To try it, just clone the repository or download a package from github and run: ./secuela –help
+
+Any comment would be appreciated :)
