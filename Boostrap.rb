@@ -24,7 +24,7 @@ class Boostrap
     
     @output_file = File.open(@output_file, "w") unless @output_file == $stdout
     
-    if @format == "png" then
+    if @format != "dot" then
       tf = Tempfile.new("mysql2uml")
       printer = DotPrinter.new tf
       printer.print_database db
@@ -62,7 +62,7 @@ private
       @database = database
     end
     opts.on(
-      "-fFORMAT", "--format=FORMAT", "Format: dot or png", String
+      "-fFORMAT", "--format=FORMAT", "Format: dot, png or any graphviz supported format", String
     ) do |format|
       @format = format
     end
@@ -79,7 +79,7 @@ private
     @host = @host || "localhost"
     @user = @user || Etc.getlogin
     @format = @format || "png"
-    @output_file = @output_file || @database + "_" + Time.new.to_s.gsub(" ", "_") + ".png"
+    @output_file = @output_file || @database + "_" + Time.new.to_s.gsub(" ", "_") + "." + @format
   end
 
 end
