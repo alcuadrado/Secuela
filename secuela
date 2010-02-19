@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+#Ruby1.8 backwards compatibility
+if Object.respond_to?(:require_relative, true) == false then
+  def require_relative(*args)
+    require(*args)
+  end
+end
+
+require_relative "Boostrap.rb"
+
+app = Boostrap.new
+app.run
