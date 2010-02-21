@@ -6,7 +6,7 @@ require 'etc'
 require_relative 'Database'
 require_relative 'DotPrinter'
 
-class Boostrap
+class Boosttrap
   
   def initialize
   end

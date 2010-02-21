@@ -8,7 +8,6 @@ if Object.respond_to?(:require_relative, true) == false then
   end
 end
 
-require_relative "Boostrap.rb"
+require_relative "Boosttrap.rb"
 
-app = Boostrap.new
-app.run
+Boosttrap.new.run
