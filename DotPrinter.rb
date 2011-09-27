@@ -47,7 +47,7 @@ private
   end
   
   def print_foreign_key(foreign_key)
-    output_file.puts "\t#{foreign_key.referenced_table.name} -> #{foreign_key.key_table.name}"  
+    output_file.puts "\t #{foreign_key.key_table.name} -> #{foreign_key.referenced_table.name}"
   end
 
 end
