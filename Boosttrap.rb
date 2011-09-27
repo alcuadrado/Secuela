@@ -27,6 +27,7 @@ class Boosttrap
     if @format != "dot" then
       tf = Tempfile.new("mysql2uml")
       printer = DotPrinter.new tf
+      printer.set_labels_on(@print_labels)
       printer.print_database db
       tf.flush
       if @output_file == $stdout then
@@ -68,6 +69,9 @@ private
     end
     opts.on("-oFILE", "--output=FILE", "Output file", String) do |output_file|
       @output_file = output_file
+    end
+    opts.on("--labels", "Print Labels on edges") do |print_labels|
+        @print_labels = true
     end
     opts.parse(ARGV)
 

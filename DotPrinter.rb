@@ -4,6 +4,11 @@ class DotPrinter
 
   def initialize(output_file = $stdout)
     @output_file = output_file
+    @print_labels = false
+  end
+
+  def set_labels_on(value = false)
+    @print_labels = value
   end
 
   def print_database(database)
@@ -47,7 +52,12 @@ private
   end
   
   def print_foreign_key(foreign_key)
-    output_file.puts "\t #{foreign_key.key_table.name} -> #{foreign_key.referenced_table.name}"
+    output_string = "\t #{foreign_key.key_table.name} -> #{foreign_key.referenced_table.name} "
+    if (@print_labels)
+        output_string += "[style = bold, label=\"#{foreign_key.key_column.name} -> #{foreign_key.referenced_column.name}\"]"
+    end
+    output_file.puts output_string
+
   end
 
 end
