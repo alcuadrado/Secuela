@@ -35,7 +35,7 @@ private
 
   def get_columns_from_database
     results = @database_handler.query(
-      "DESCRIBE " + @database_handler.quote(self.name)
+      "DESCRIBE `" + @database_handler.quote(self.name) + "`"
     )
     results.each_hash do |row|
       column = Column.new :name => row["Field"], :type => row["Type"]
